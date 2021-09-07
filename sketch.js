@@ -1,4 +1,4 @@
-/// <reference path="../p5.global-mode.d.ts" />
+/// <reference path="p5.global-mode.d.ts" />
 
 let snake; //the snake
 let rez = 20; //resolution
