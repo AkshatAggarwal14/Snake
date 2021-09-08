@@ -46,9 +46,6 @@ function keyPressed() {
     } else if (keyCode === UP_ARROW && snake.dir.y != 1) {
         snake.setDir(0, -1);
     }
-    // else if (key == ' ') {
-    //     snake.grow();
-    // }
 }
 
 function draw() {
