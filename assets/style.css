@@ -1,6 +1,7 @@
 body {
     padding: 0;
     margin: 10px;
+    text-align: center;
     background: rgb(40, 40, 40);
 }
 
@@ -10,14 +11,28 @@ h1 {
     letter-spacing: 0.5rem;
     color: rgb(255, 255, 255);
     margin: 10px;
-    margin-bottom: 0px;
-    text-align: center;
+}
+
+p {
+    font-size: 1rem;
+    color: white;
+    letter-spacing: 0.1rem;
+    margin: 0px;
+    margin-bottom: 5px;
+    /* font-family: 'Press Start 2P'; */
 }
 
 #score {
+    font-size: 0.8rem;
     color: white;
-    padding: 0;
     margin: 0px;
     margin-bottom: 5px;
-    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+}
+
+canvas {
+    display: block;
+    margin: 2% auto;
+    box-shadow: 1px 3px 10px 5px rgba(0, 0, 0, 0.75);
+    border: 3px solid rgb(255, 81, 0);
 }

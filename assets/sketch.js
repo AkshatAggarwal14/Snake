@@ -10,9 +10,10 @@ let mode = 0;
 let max_score = 0;
 
 function setup() {
-    createCanvas(window.innerWidth - 30, window.innerHeight - 100);
+    createCanvas(window.innerWidth / 2, 2 * window.innerHeight / 3);
     w = floor(width / rez);
     h = floor(height / rez);
+    // to give the game an arcade feel
     frameRate(10);
     snake = new Snake();
     foodLocation();
@@ -51,7 +52,7 @@ function draw() {
     clear();
     if (mode == 0) {
         fill(120, 240, 230);
-        textSize(30);
+        textSize(25);
         text('Press \"Enter\" to start playing...', 20, 40);
     } else if (mode == 1) {
         print("Game started");
@@ -64,20 +65,18 @@ function draw() {
         }
         snake.update();
         snake.show();
-
         if (snake.endGame()) {
             background(255, 0, 0);
             mode = 2;
         }
         document.getElementById("score").innerHTML = "Score: " + score + "&nbsp;&nbsp;&nbsp;&nbsp;" + "High Score: " + max_score;
-
         noStroke();
         fill(255, 0, 0);
         rect(food.x, food.y, 1, 1);
     } else {
         background(51);
-        fill(255, 0, 0);
-        textSize(30);
+        fill(120, 240, 230);
+        textSize(25);
         text('Game Over.. \nPress "Enter" to play again!', 20, 40);
         print("GAME OVER!");
     }
