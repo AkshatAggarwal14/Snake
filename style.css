@@ -1,0 +1,23 @@
+body {
+    padding: 0;
+    margin: 10px;
+    background: rgb(40, 40, 40);
+}
+
+h1 {
+    font-size: 2.1rem;
+    line-height: 1.4;
+    letter-spacing: 0.5rem;
+    color: rgb(255, 255, 255);
+    margin: 10px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+#score {
+    color: white;
+    padding: 0;
+    margin: 0px;
+    margin-bottom: 5px;
+    text-align: center;
+}
