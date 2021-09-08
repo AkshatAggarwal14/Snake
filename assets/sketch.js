@@ -17,6 +17,7 @@ function setup() {
     frameRate(10);
     snake = new Snake();
     foodLocation();
+    textFont('Overpass');
 }
 
 function foodLocation() {
@@ -75,9 +76,13 @@ function draw() {
         rect(food.x, food.y, 1, 1);
     } else {
         background(51);
-        fill(120, 240, 230);
         textSize(25);
-        text('Game Over.. \nPress "Enter" to play again!', 20, 40);
+        let myFont = loadFont('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@450')
+        textFont(myFont);
+        fill(255, 6, 0);
+        text('Game Over.. ', 20, 40);
+        fill(120, 240, 230);
+        text('\nPress "Enter" to play again!', 20, 40);
         print("GAME OVER!");
     }
 }
