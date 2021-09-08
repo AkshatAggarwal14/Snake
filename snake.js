@@ -27,7 +27,7 @@ class Snake {
     }
 
     endGame() {
-        let x = this.body[this.body.length - 1].x;
+        let x = this.body[this.body.length - 1].x; //front-end of snake
         let y = this.body[this.body.length - 1].y;
         if (x > w - 1 || x < 0 || y > h - 1 || y < 0) { //check if outside canvas
             return true;
