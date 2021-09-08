@@ -2,7 +2,7 @@ class Snake {
     constructor() {
         this.body = [];
         this.head = createVector(floor(w / 2), floor(h / 2));
-        this.dir = 0;
+        this.dir = createVector(0, 0);
     }
 
     setDir(x, y) {
