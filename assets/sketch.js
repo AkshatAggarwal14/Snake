@@ -53,7 +53,7 @@ function draw() {
     clear();
     if (mode == 0) {
         fill(120, 240, 230);
-        textSize(25);
+        textSize(22);
         text('Press \"Enter\" to start playing...', 20, 40);
     } else if (mode == 1) {
         print("Game started");
@@ -76,7 +76,7 @@ function draw() {
         rect(food.x, food.y, 1, 1);
     } else {
         background(51);
-        textSize(25);
+        textSize(22);
         fill(255, 6, 0);
         text('Game Over.. ', 20, 40);
         fill(120, 240, 230);
