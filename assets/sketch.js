@@ -16,6 +16,7 @@ function setup() {
     // to give the game an arcade feel
     frameRate(8);
     snake = new Snake();
+
     foodLocation();
     textFont('Overpass');
 }
@@ -36,13 +37,13 @@ function keyPressed() {
             foodLocation();
         }
     }
-    if (keyCode === LEFT_ARROW && snake.xdir != 1) {
+    if (keyCode === LEFT_ARROW && snake.dir.x != 1) {
         snake.setDir(-1, 0);
-    } else if (keyCode === RIGHT_ARROW && snake.xdir != -1) {
+    } else if (keyCode === RIGHT_ARROW && snake.dir.x != -1) {
         snake.setDir(1, 0);
-    } else if (keyCode === DOWN_ARROW && snake.ydir != -1) {
+    } else if (keyCode === DOWN_ARROW && snake.dir.y != -1) {
         snake.setDir(0, 1);
-    } else if (keyCode === UP_ARROW && snake.ydir != 1) {
+    } else if (keyCode === UP_ARROW && snake.dir.y != 1) {
         snake.setDir(0, -1);
     }
     // else if (key == ' ') {
@@ -52,9 +53,8 @@ function keyPressed() {
 
 function draw() {
     let rate = floor(score / 10) + 8;
-    if (rate > frameRate() + 1) {
-        frameRate(rate); //makes snake faster by increasing framerate
-    }
+    frameRate(rate);
+    print(frameRate()); //increases snake speed every 10 points
     clear();
     if (mode == 0) {
         fill(120, 240, 230);
@@ -64,12 +64,11 @@ function draw() {
         print("Game started");
         scale(rez);
         background(51);
-        if (snake.eat(food)) {
+        if (snake.update(food)) {
             score++;
             foodLocation();
             max_score = max(max_score, score);
         }
-        snake.update();
         snake.show();
         if (snake.endGame()) {
             background(255, 0, 0);

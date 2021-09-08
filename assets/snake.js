@@ -1,39 +1,31 @@
 class Snake {
     constructor() {
         this.body = [];
-        this.body[0] = createVector(floor(w / 2), floor(h / 2));
-        this.xdir = 0;
-        this.ydir = 0;
-        this.len = 0;
+        this.head = createVector(floor(w / 2), floor(h / 2));
+        this.dir = 0;
     }
 
     setDir(x, y) {
-        this.xdir = x;
-        this.ydir = y;
+        this.dir = createVector(x, y);
     }
 
-    update() {
-        let head = this.body[this.body.length - 1].copy();
+    update(food) {
+        this.body.push(this.head.copy());
+        this.head.add(this.dir);
+        if (this.head.x === food.x && this.head.y === food.y) {
+            return true; // yum!
+        }
         this.body.shift();
-        head.x += this.xdir;
-        head.y += this.ydir;
-        this.body.push(head);
-    }
-
-    grow() {
-        let head = this.body[this.body.length - 1].copy();
-        this.len++;
-        this.body.push(head);
+        return false;
     }
 
     endGame() {
-        let x = this.body[this.body.length - 1].x; //front-end of snake
-        let y = this.body[this.body.length - 1].y;
-        if (x > w - 1 || x < 0 || y > h - 1 || y < 0) { //check if outside canvas
+        let x = this.head.x;
+        let y = this.head.y;
+        if (x > w - 1 || x < 0 || y > h - 1 || y < 0) {
             return true;
         }
-        for (let i = 0; i < this.body.length - 1; i++) {
-            let part = this.body[i];
+        for (let part of this.body) {
             if (part.x == x && part.y == y) {
                 return true;
             }
@@ -41,21 +33,13 @@ class Snake {
         return false;
     }
 
-    eat(pos) {
-        let x = this.body[this.body.length - 1].x;
-        let y = this.body[this.body.length - 1].y;
-        if (x == pos.x && y == pos.y) {
-            this.grow();
-            return true;
-        }
-        return false;
-    }
-
     show() {
         fill(255);
-        for (let i = 0; i < this.body.length; i++) {
-            noStroke();
-            rect(this.body[i].x, this.body[i].y, 1, 1);
+        noStroke();
+        for (let part of this.body) {
+            rect(part.x, part.y, 1, 1);
         }
+        fill(255, 150, 150);
+        rect(this.head.x, this.head.y, 1, 1);
     }
 }
