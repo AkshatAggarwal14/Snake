@@ -14,7 +14,7 @@ function setup() {
     w = floor(width / rez);
     h = floor(height / rez);
     // to give the game an arcade feel
-    frameRate(10);
+    frameRate(8);
     snake = new Snake();
     foodLocation();
     textFont('Overpass');
