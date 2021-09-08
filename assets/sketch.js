@@ -14,7 +14,7 @@ function setup() {
     w = floor(width / rez);
     h = floor(height / rez);
     // to give the game an arcade feel
-    frameRate(8);
+    frameRate(floor(score / 10) + 8);
     snake = new Snake();
     foodLocation();
     textFont('Overpass');
@@ -50,6 +50,10 @@ function keyPressed() {
 }
 
 function draw() {
+    let rate = floor(score / 10) + 8;
+    if (rate > frameRate() + 1) {
+        frameRate(rate); //makes snake faster by increasing framerate
+    }
     clear();
     if (mode == 0) {
         fill(120, 240, 230);
