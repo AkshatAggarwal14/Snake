@@ -19,14 +19,13 @@ p {
     letter-spacing: 0.1rem;
     margin: 0px;
     margin-bottom: 5px;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Overpass', cursive;
 }
 
 #score {
     font-size: 0.8rem;
     color: white;
     margin: 0px;
-    margin-bottom: 5px;
     font-family: 'Press Start 2P', cursive;
 }
 

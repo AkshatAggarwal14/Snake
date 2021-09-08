@@ -10,7 +10,7 @@ let mode = 0;
 let max_score = 0;
 
 function setup() {
-    createCanvas(window.innerWidth / 2, 2 * window.innerHeight / 3);
+    createCanvas(floor(window.innerWidth / 2), 2 * floor(window.innerHeight / 3));
     w = floor(width / rez);
     h = floor(height / rez);
     // to give the game an arcade feel
@@ -77,8 +77,6 @@ function draw() {
     } else {
         background(51);
         textSize(25);
-        let myFont = loadFont('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@450')
-        textFont(myFont);
         fill(255, 6, 0);
         text('Game Over.. ', 20, 40);
         fill(120, 240, 230);
