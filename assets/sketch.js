@@ -51,7 +51,7 @@ function keyPressed() {
 function draw() {
     let rate = floor(score / 10) + 8;
     frameRate(rate);
-    print(frameRate()); //increases snake speed every 10 points
+    // print(frameRate()); //increases snake speed every 10 points
     clear();
     if (mode == 0) {
         fill(120, 240, 230);
